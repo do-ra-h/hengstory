@@ -1014,36 +1014,25 @@
   </div>
 </div>
 
-  <section class="map-section">
-  <div class="map-container"></div>
-  <div class="map-overlay"></div>
+ <section class="map-section" style="height: 600px; position: relative; background: #0b0805; overflow: hidden;">
+  <div class="map-container" style="position: absolute; inset: 0; background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Earthmap1000x500compac.jpg/1280px-Earthmap1000x500compac.jpg') center/cover no-repeat; opacity: 0.3;"></div>
+  <div class="map-overlay" style="position: absolute; inset: 0; background: radial-gradient(circle at center, transparent 30%, #0b0805 85%);"></div>
 
-  <div class="migration-path">
+  <div class="migration-path" style="position: absolute; inset: 0; z-index: 10;">
+    <div class="migration-node" style="top:62%; left:18%; animation-delay:0.5s;" title="Out of Africa ~70,000 BC"></div>
 
-    <!-- Africa origin -->
-    <div class="migration-node" style="top:65%; left:20%; animation-delay:0.5s;" title="Out of Africa ~70,000 BC"></div>
+    <div class="migration-node" style="top:55%; left:38%; animation-delay:1.2s;" title="Coastal migration"></div>
 
-    <!-- South Asia coastal route -->
-    <div class="migration-node" style="top:68%; left:35%; animation-delay:1s;" title="Coastal migration"></div>
+    <div class="migration-node" style="top:60%; left:52%; animation-delay:1.8s;" title="Southern Route"></div>
 
-    <!-- Southeast Asia -->
-    <div class="migration-node" style="top:65%; left:55%; animation-delay:1.5s;" title="Early Southeast Asia"></div>
+    <div class="migration-node" style="top:68%; left:68%; animation-delay:2.4s;" title="Early Southeast Asia"></div>
 
-    <!-- South China / Baiyue -->
-    <div class="migration-node" style="top:58%; left:65%; animation-delay:2s;" title="Baiyue South China"></div>
+    <div class="migration-node" style="top:42%; left:75%; animation-delay:3.0s;" title="Yellow River civilization"></div>
 
-    <!-- Yellow River -->
-    <div class="migration-node" style="top:45%; left:70%; animation-delay:2.5s;" title="Yellow River civilization"></div>
+    <div class="migration-node" style="top:55%; left:78%; animation-delay:3.6s;" title="Chenghai / Chaoshan" 
+         style="background: var(--gold); box-shadow: 0 0 20px var(--gold-light);"></div>
 
-    <!-- Fujian -->
-    <div class="migration-node" style="top:55%; left:72%; animation-delay:3s;" title="Fujian / Min Kingdom"></div>
-
-    <!-- Chaoshan -->
-    <div class="migration-node" style="top:58%; left:75%; animation-delay:3.5s;" title="Chenghai / Chaoshan"></div>
-
-    <!-- Singapore -->
-    <div class="migration-node" style="top:75%; left:75%; animation-delay:4s;" title="Singapore migration"></div>
-
+    <div class="migration-node" style="top:74%; left:72%; animation-delay:4.2s;" title="Singapore migration"></div>
   </div>
 </section>
 
