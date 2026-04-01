@@ -870,13 +870,66 @@
     .calc-key-finding { display: none; }
     .lineage-card.highlighted::before { display: none; }
   }
+
+  /* MAP TIMELINE */
+.map-section {
+  position: relative;
+  height: 90vh;
+  background: #0b0805;
+  overflow: hidden;
+}
+
+.map-container {
+  position: absolute;
+  inset: 0;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Earthmap1000x500compac.jpg/1280px-Earthmap1000x500compac.jpg') center/cover no-repeat;
+  opacity: 0.25;
+}
+
+.map-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 40%, #0b0805 90%);
+}
+
+.migration-path {
+  position: absolute;
+  inset: 0;
+}
+
+.migration-node {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: fadeNode 1s forwards;
+}
+
+.migration-node::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes fadeNode {
+  to { opacity: 1; }
+}
 </style>
 </head>
 <body>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-tag">DNA Migration Report · Kit JT2596358</div>
+  <div class="hero-tag">DNA Migration Report</div>
   <div class="hero-name">Dora <span>Heng</span></div>
   <div class="hero-char">王</div>
   <div class="hero-sub">Chenghai, Guangdong · Singapore · 澄海潮州王氏</div>
@@ -960,6 +1013,39 @@
     </div>
   </div>
 </div>
+
+  <section class="map-section">
+  <div class="map-container"></div>
+  <div class="map-overlay"></div>
+
+  <div class="migration-path">
+
+    <!-- Africa origin -->
+    <div class="migration-node" style="top:65%; left:20%; animation-delay:0.5s;" title="Out of Africa ~70,000 BC"></div>
+
+    <!-- South Asia coastal route -->
+    <div class="migration-node" style="top:68%; left:35%; animation-delay:1s;" title="Coastal migration"></div>
+
+    <!-- Southeast Asia -->
+    <div class="migration-node" style="top:65%; left:55%; animation-delay:1.5s;" title="Early Southeast Asia"></div>
+
+    <!-- South China / Baiyue -->
+    <div class="migration-node" style="top:58%; left:65%; animation-delay:2s;" title="Baiyue South China"></div>
+
+    <!-- Yellow River -->
+    <div class="migration-node" style="top:45%; left:70%; animation-delay:2.5s;" title="Yellow River civilization"></div>
+
+    <!-- Fujian -->
+    <div class="migration-node" style="top:55%; left:72%; animation-delay:3s;" title="Fujian / Min Kingdom"></div>
+
+    <!-- Chaoshan -->
+    <div class="migration-node" style="top:58%; left:75%; animation-delay:3.5s;" title="Chenghai / Chaoshan"></div>
+
+    <!-- Singapore -->
+    <div class="migration-node" style="top:75%; left:75%; animation-delay:4s;" title="Singapore migration"></div>
+
+  </div>
+</section>
 
 <!-- TIMELINE -->
 <section class="timeline-section">
@@ -1117,7 +1203,7 @@
           <div class="era-date">2026</div>
           <div class="era-heading">Dora Heng 王 — DNA Tested</div>
           <div class="era-body">Five GEDmatch calculators confirm a clean, ancient, unmixed Chenghai Teochew profile. The story of 70,000 years of migration — from Africa's coast to Southeast Asia's shores to Guangdong's villages to Singapore — is preserved in your DNA. Note: 1.58% South Asian in puntDNAL reflects fetal DNA from baby's South Asian father, not your ancestry.</div>
-          <div><span class="era-dna-tag jade">Kit JT2596358 · 5 calculators analyzed</span></div>
+          <div><span class="era-dna-tag jade"> 5 calculators analyzed</span></div>
         </div>
       </div>
 
@@ -1270,7 +1356,7 @@
     <div class="conclusion-quote">
       You carry both. The <strong>Wang royal surname</strong> sits on top of an ancient coastal ancestry that predates Chinese civilization by 50,000 years. The DNA tests have revealed the hidden story beneath the official one.
     </div>
-    <div class="conclusion-attribution">— DNA Migration Analysis · Kit JT2596358 · Dora Heng 王</div>
+    <div class="conclusion-attribution">— DNA Migration Analysis · Dora Heng 王</div>
   </div>
 </section>
 
@@ -1318,8 +1404,24 @@
 </section>
 
 <div class="footer">
-  <div class="footer-text">DORA HENG 王 · KIT JT2596358 · CHENGHAI 澄海 · SINGAPORE · DNA ANALYSIS 2026</div>
+  <div class="footer-text">DORA HENG 王 · CHENGHAI 澄海 · SINGAPORE · DNA ANALYSIS 2026</div>
 </div>
+
+  <script>
+const nodes = document.querySelectorAll('.migration-node');
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  const trigger = window.innerHeight * 0.6;
+
+  nodes.forEach((node, i) => {
+    if (scrollY > trigger * (i * 0.4)) {
+      node.style.opacity = 1;
+      node.style.transform = 'translate(-50%, -50%) scale(1.2)';
+    }
+  });
+});
+</script>
 
 </body>
 </html>
