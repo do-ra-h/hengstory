@@ -871,59 +871,7 @@
     .lineage-card.highlighted::before { display: none; }
   }
 
-  /* MAP TIMELINE */
-.map-section {
-  position: relative;
-  height: 90vh;
-  background: #0b0805;
-  overflow: hidden;
-}
-
-.map-container {
-  position: absolute;
-  inset: 0;
-  background: url('https://upload.wikimedia.org/wikipedia/commons/d/db/Simplified_World_Map.svg') center/cover no-repeat;
-  opacity: 0.25;
-}
-
-.map-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, transparent 40%, #0b0805 90%);
-}
-
-.migration-path {
-  position: absolute;
-  inset: 0;
-}
-
-.migration-node {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 15px var(--gold);
-  transform: translate(-50%, -50%);
-  z-index: 10;
-}
-
-/* The vertical line dropping from each node */
-.migration-node::after {
-  content: '';
-  position: absolute;
-  width: 1px;
-  height: 50px;
-  background: linear-gradient(to bottom, var(--gold), transparent);
-  top: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0.6;
-}
-
-@keyframes fadeNode {
-  to { opacity: 1; }
-}
+  
 </style>
 </head>
 <body>
@@ -1015,31 +963,7 @@
   </div>
 </div>
 
-<section class="map-section" style="height: 600px; position: relative; background: #0b0805; overflow: hidden; border-top: 1px solid rgba(200,150,42,0.15); border-bottom: 1px solid rgba(200,150,42,0.15);">
-  
-<div class="map-container" style="
-    position: absolute; 
-    inset: 0; 
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/db/Simplified_World_Map.svg');
-    background-size: cover;
-    background-position: center;
-    /* Adjusted opacity and filters for the Gold-on-Black look */
-    opacity: 0.2; 
-    filter: invert(1) sepia(1) saturate(2) brightness(0.5) contrast(1.2);
-"></div>
-  
-  <div class="map-overlay" style="position: absolute; inset: 0; background: radial-gradient(circle at center, transparent 20%, rgba(11, 8, 5, 0.8) 95%);"></div>
 
-  <div class="migration-path" style="position: absolute; inset: 0; z-index: 10;">
-    <div class="migration-node" style="top:58%; left:16%;" title="Out of Africa"></div>
-    <div class="migration-node" style="top:48%; left:34%;" title="Coastal Route"></div>
-    <div class="migration-node" style="top:58%; left:50%;" title="Southern Route"></div>
-    <div class="migration-node" style="top:65%; left:66%;" title="Baiyue Origins"></div>
-    <div class="migration-node" style="top:38%; left:74%;" title="Northern Han Source"></div>
-    <div class="migration-node" style="top:52%; left:76%; background: #e8b84b; box-shadow: 0 0 30px #c8962a; width: 14px; height: 14px; z-index: 20;" title="Chenghai, Chaoshan"></div>
-    <div class="migration-node" style="top:74%; left:69%;" title="Singapore"></div>
-  </div>
-</section>
 
 <!-- TIMELINE -->
 <section class="timeline-section">
