@@ -899,25 +899,26 @@
 
 .migration-node {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--gold);
-  box-shadow: 0 0 10px var(--gold);
+  box-shadow: 0 0 15px var(--gold);
   transform: translate(-50%, -50%);
-  opacity: 0;
-  animation: fadeNode 1s forwards;
+  z-index: 10;
 }
 
+/* The vertical line dropping from each node */
 .migration-node::after {
   content: '';
   position: absolute;
-  width: 2px;
-  height: 40px;
+  width: 1px;
+  height: 50px;
   background: linear-gradient(to bottom, var(--gold), transparent);
-  top: 10px;
+  top: 8px;
   left: 50%;
   transform: translateX(-50%);
+  opacity: 0.6;
 }
 
 @keyframes fadeNode {
@@ -1016,18 +1017,26 @@
 
 <section class="map-section" style="height: 600px; position: relative; background: #0b0805; overflow: hidden; border-top: 1px solid rgba(200,150,42,0.15); border-bottom: 1px solid rgba(200,150,42,0.15);">
   
-  <div class="map-container" style="position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat; opacity: 0.4; filter: sepia(0.5) brightness(0.6) contrast(1.2);"></div>
+<div class="map-container" style="
+    position: absolute; 
+    inset: 0; 
+    background-image: url('https://tiles.stadiamaps.com/tiles/stamen_toner_background/0/0/0.png'); 
+    background-size: cover;
+    background-position: center;
+    opacity: 0.25;
+    filter: invert(1) sepia(1) saturate(2) brightness(0.6) contrast(1.2);
+"></div>
   
-  <div class="map-overlay" style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, transparent 20%, rgba(11, 8, 5, 0.8) 100%);"></div>
+  <div class="map-overlay" style="position: absolute; inset: 0; background: radial-gradient(circle at center, transparent 20%, rgba(11, 8, 5, 0.8) 95%);"></div>
 
   <div class="migration-path" style="position: absolute; inset: 0; z-index: 10;">
-    <div class="migration-node" style="top:62%; left:18%;" title="Out of Africa ~70,000 BC"></div>
-    <div class="migration-node" style="top:55%; left:38%;" title="Coastal migration"></div>
-    <div class="migration-node" style="top:60%; left:52%;" title="Southern Route"></div>
-    <div class="migration-node" style="top:68%; left:68%;" title="Early Southeast Asia"></div>
-    <div class="migration-node" style="top:42%; left:75%;" title="Yellow River civilization"></div>
-    <div class="migration-node" style="top:55%; left:78%; background: #e8b84b; box-shadow: 0 0 20px #c8962a; width: 14px; height: 14px;" title="Chenghai / Chaoshan"></div>
-    <div class="migration-node" style="top:74%; left:72%;" title="Singapore migration"></div>
+    <div class="migration-node" style="top:58%; left:16%;" title="Out of Africa"></div>
+    <div class="migration-node" style="top:48%; left:34%;" title="Coastal Route"></div>
+    <div class="migration-node" style="top:58%; left:50%;" title="Southern Route"></div>
+    <div class="migration-node" style="top:65%; left:66%;" title="Baiyue Origins"></div>
+    <div class="migration-node" style="top:38%; left:74%;" title="Northern Han Source"></div>
+    <div class="migration-node" style="top:52%; left:76%; background: #e8b84b; box-shadow: 0 0 30px #c8962a; width: 14px; height: 14px; z-index: 20;" title="Chenghai, Chaoshan"></div>
+    <div class="migration-node" style="top:74%; left:69%;" title="Singapore"></div>
   </div>
 </section>
 
